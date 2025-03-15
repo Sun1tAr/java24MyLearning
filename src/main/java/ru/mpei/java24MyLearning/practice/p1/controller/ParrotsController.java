@@ -1,0 +1,40 @@
+package ru.mpei.java24MyLearning.practice.p1.controller;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import ru.mpei.java24MyLearning.practice.p1.model.Color;
+import ru.mpei.java24MyLearning.practice.p1.model.Parrot;
+import ru.mpei.java24MyLearning.practice.p1.repo.InMemoryParrotRepo;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+public class ParrotsController {
+
+    @Autowired
+    private InMemoryParrotRepo parrotRepo;
+    @Autowired
+    private ObjectMapper mapper;
+
+    @PostMapping("/saveParrot")
+    public void saveParrot(@RequestBody Parrot parrot) {
+        parrotRepo.saveParrot(parrot);
+    }
+
+    @PostMapping("/saveAllParrots")
+    public void saveParrots(@RequestBody Collection<Parrot> parrots) {
+        parrotRepo.saveParrots(parrots);
+    }
+
+    @GetMapping("/getParrotByColor")
+    public Collection<Parrot> getParrotsByColor(@RequestParam("color") String color) {
+        Optional<List<Parrot>> parrotsByColor = parrotRepo.getParrotsByColor(Color.getColorFromString(color));
+        return parrotsByColor.orElseGet(ArrayList::new);
+    }
+
+}
