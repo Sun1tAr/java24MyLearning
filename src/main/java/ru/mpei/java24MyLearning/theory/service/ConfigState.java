@@ -18,7 +18,7 @@ public class ConfigState {
     @Autowired
     private ObjectMapper mapper;
 
-    @PostConstruct
+//    @PostConstruct
     @SneakyThrows
     public void readConfig() {
         String path = "src/main/resources/iniCfg.json";
