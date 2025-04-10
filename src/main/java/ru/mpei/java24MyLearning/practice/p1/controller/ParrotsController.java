@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.mpei.java24MyLearning.practice.p1.model.Color;
 import ru.mpei.java24MyLearning.practice.p1.model.Parrot;
 import ru.mpei.java24MyLearning.practice.p1.repo.InMemoryParrotRepo;
-import ru.mpei.java24MyLearning.practice.p1.repo.ParrotRepo;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,8 +18,7 @@ public class ParrotsController {
 
     @Autowired
     private InMemoryParrotRepo parrotRepo;
-    @Autowired
-    private ParrotRepo parrotRepo2;
+
 
 
     @PostMapping("/saveParrotToLocal")

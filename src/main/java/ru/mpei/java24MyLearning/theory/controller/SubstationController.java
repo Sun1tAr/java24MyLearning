@@ -28,20 +28,20 @@ public class SubstationController {
         repo.save(substation);
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
         Substation substation = new Substation();
-        substation.setVoltageclass("110");
+        substation.setVoltageclass(110);
         substation.setName("Murzilko");
         repo.save(substation);
 
         substation = new Substation();
-        substation.setVoltageclass("220");
+        substation.setVoltageclass(220);
         substation.setName("Purino");
         repo.save(substation);
 
         substation = new Substation();
-        substation.setVoltageclass("500");
+        substation.setVoltageclass(500);
         substation.setName("Wuffel");
         repo.save(substation);
     }

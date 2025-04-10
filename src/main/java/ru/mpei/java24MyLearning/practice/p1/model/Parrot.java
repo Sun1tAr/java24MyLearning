@@ -12,17 +12,17 @@ import java.awt.*;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-@Table(name = "parrots")
+//@Entity
+//@Table(name = "parrots")
 public class Parrot {
 
-    @Id
-    @Column(name = "parrot_id")
+//    @Id
+//    @Column(name = "parrot_id")
     private long id;
-    @Column
+//    @Column
     private String name;
-    @Column
+//    @Column
     private long age;
-    @Column
+//    @Column
     private String color;
 }
